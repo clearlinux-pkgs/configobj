@@ -4,7 +4,7 @@
 #
 Name     : configobj
 Version  : 5.0.6
-Release  : 17
+Release  : 18
 URL      : https://pypi.python.org/packages/source/c/configobj/configobj-5.0.6.tar.gz
 Source0  : https://pypi.python.org/packages/source/c/configobj/configobj-5.0.6.tar.gz
 Summary  : Config file reading, writing and validation.
@@ -16,6 +16,7 @@ BuildRequires : pip
 BuildRequires : python-dev
 BuildRequires : python3-dev
 BuildRequires : setuptools
+BuildRequires : six
 
 %description
 No detailed description available
@@ -32,18 +33,16 @@ python components for the configobj package.
 %setup -q -n configobj-5.0.6
 
 %build
+export LANG=C
+export SOURCE_DATE_EPOCH=1484539482
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
-%check
-export http_proxy=http://127.0.0.1:9/
-export https_proxy=http://127.0.0.1:9/
-export no_proxy=intel.com,localhost
-python validate.py
 %install
+export SOURCE_DATE_EPOCH=1484539482
 rm -rf %{buildroot}
-python2 setup.py build -b py2 install --root=%{buildroot}
-python3 setup.py build -b py3 install --root=%{buildroot}
+python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
+python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 
 %files
 %defattr(-,root,root,-)
