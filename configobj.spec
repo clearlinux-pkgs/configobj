@@ -4,7 +4,7 @@
 #
 Name     : configobj
 Version  : 5.0.6
-Release  : 42
+Release  : 43
 URL      : http://pypi.debian.net/configobj/configobj-5.0.6.tar.gz
 Source0  : http://pypi.debian.net/configobj/configobj-5.0.6.tar.gz
 Summary  : Config file reading, writing and validation.
@@ -45,7 +45,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1554306805
+export SOURCE_DATE_EPOCH=1554309139
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
