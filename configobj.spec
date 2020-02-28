@@ -4,7 +4,7 @@
 #
 Name     : configobj
 Version  : 5.0.6
-Release  : 47
+Release  : 48
 URL      : http://pypi.debian.net/configobj/configobj-5.0.6.tar.gz
 Source0  : http://pypi.debian.net/configobj/configobj-5.0.6.tar.gz
 Summary  : Config file reading, writing and validation.
@@ -17,7 +17,43 @@ BuildRequires : buildreq-distutils3
 BuildRequires : six
 
 %description
-No detailed description available
+**ConfigObj** is a simple but powerful config file reader and writer: an *ini
+file round tripper*. Its main feature is that it is very easy to use, with a
+straightforward programmer's interface and a simple syntax for config files.
+It has lots of other features though :
+
+* Nested sections (subsections), to any level
+* List values
+* Multiple line values
+* Full Unicode support
+* String interpolation (substitution)
+* Integrated with a powerful validation system
+
+    - including automatic type checking/conversion
+    - and allowing default values
+    - repeated sections
+
+* All comments in the file are preserved
+* The order of keys/sections is preserved
+* Powerful ``unrepr`` mode for storing/retrieving Python data-types
+
+| Release 5.0.6 improves error messages in certain edge cases
+| Release 5.0.5 corrects a unicode-bug that still existed in writing files
+| Release 5.0.4 corrects a unicode-bug that still existed in reading files after
+| fixing lists of string in 5.0.3
+| Release 5.0.3 corrects errors related to the incorrectly handling unicode
+| encoding and writing out files
+| Release 5.0.2 adds a specific error message when trying to install on
+| Python versions older than 2.5
+| Release 5.0.1 fixes a regression with unicode conversion not happening
+| in certain cases PY2
+| Release 5.0.0 updates the supported Python versions to 2.6, 2.7, 3.2, 3.3
+| and is otherwise unchanged
+| Release 4.7.2 fixes several bugs in 4.7.1
+| Release 4.7.1 fixes a bug with the deprecated options keyword in
+| 4.7.0.
+| Release 4.7.0 improves performance adds features for validation and
+| fixes some bugs.
 
 %package python
 Summary: python components for the configobj package.
@@ -32,6 +68,7 @@ python components for the configobj package.
 Summary: python3 components for the configobj package.
 Group: Default
 Requires: python3-core
+Provides: pypi(configobj)
 
 %description python3
 python3 components for the configobj package.
@@ -39,13 +76,20 @@ python3 components for the configobj package.
 
 %prep
 %setup -q -n configobj-5.0.6
+cd %{_builddir}/configobj-5.0.6
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1554309139
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1582913104
+# -Werror is for werrorists
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
