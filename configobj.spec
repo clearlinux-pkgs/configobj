@@ -4,7 +4,7 @@
 #
 Name     : configobj
 Version  : 5.0.6
-Release  : 59
+Release  : 60
 URL      : http://pypi.debian.net/configobj/configobj-5.0.6.tar.gz
 Source0  : http://pypi.debian.net/configobj/configobj-5.0.6.tar.gz
 Summary  : Config file reading, writing and validation.
