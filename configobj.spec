@@ -4,7 +4,7 @@
 #
 Name     : configobj
 Version  : 5.0.6
-Release  : 64
+Release  : 65
 URL      : http://pypi.debian.net/configobj/configobj-5.0.6.tar.gz
 Source0  : http://pypi.debian.net/configobj/configobj-5.0.6.tar.gz
 Summary  : Config file reading, writing and validation.
@@ -12,9 +12,8 @@ Group    : Development/Tools
 License  : BSD-3-Clause
 Requires: configobj-python = %{version}-%{release}
 Requires: configobj-python3 = %{version}-%{release}
-Requires: six
 BuildRequires : buildreq-distutils3
-BuildRequires : six
+BuildRequires : pypi(six)
 
 %description
 file round tripper*. Its main feature is that it is very easy to use, with a
@@ -49,7 +48,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1635714660
+export SOURCE_DATE_EPOCH=1650521438
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
