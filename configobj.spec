@@ -7,7 +7,7 @@
 #
 Name     : configobj
 Version  : 5.0.9
-Release  : 71
+Release  : 72
 URL      : https://files.pythonhosted.org/packages/f5/c4/c7f9e41bc2e5f8eeae4a08a01c91b2aea3dfab40a3e14b25e87e7db8d501/configobj-5.0.9.tar.gz
 Source0  : https://files.pythonhosted.org/packages/f5/c4/c7f9e41bc2e5f8eeae4a08a01c91b2aea3dfab40a3e14b25e87e7db8d501/configobj-5.0.9.tar.gz
 Summary  : Config file reading, writing and validation.
